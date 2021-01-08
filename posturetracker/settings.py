@@ -48,7 +48,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
-STATIC_ROOT='/static'
+STATIC_ROOT='static'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
