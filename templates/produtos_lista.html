@@ -1,0 +1,67 @@
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 20px;
+            color: #333333;
+        }
+
+        table, th, td {
+            border: solid 1px #000;
+            padding: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            caption-side: bottom;
+        }
+
+        caption {
+            font-size: 16px;
+            font-weight: bold;
+            padding-top: 5px;
+        }
+    </style>
+</head>
+<body>
+<caption>Produtos vendidos</caption>
+<table>
+    <thead>
+    <tr>
+        <th>Produto</th>
+        <th>Código</th>
+        <th>Coletado em</th>
+        <th>Sensor1</th>
+        <th>Sensor2</th>
+        <th>Sensor3</th>
+        <th>Sensor4</th>
+        <th>Peso Total</th>
+        <th>Avaliação</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for produto in produtos %}
+        <tr>
+            <td>{{ produto.nome }}</td>
+            <td>{{ produto.id }}</td>
+            <td>{{ produto.data }}</td>
+            <td>{{ produto.sensor1 }}Kg</td>
+            <td>{{ produto.sensor2 }}Kg</td>
+            <td>{{ produto.sensor3 }}Kg</td>
+            <td>{{ produto.sensor4 }}Kg</td>
+            <td>{{ produto.peso_total }}Kg</td>
+            {% if produto.avaliacao == "Incorreta" %} <td style="background:red"> {{ produto.avaliacao }} </td>
+            {% elif produto.avaliacao == "Atenção" %} <td style="background:yellow"> {{ produto.avaliacao }} </td>
+            {% elif produto.avaliacao == "Adequada" %} <td style="background:green"> {{ produto.avaliacao }} </td>
+            {% else %} <td style="background:blue"> {{ produto.avaliacao }} </td> {% endif %}
+        </tr>
+    {% empty %}
+        Desculpe, não temos dados.
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+
+</html>
