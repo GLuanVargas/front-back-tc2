@@ -1,1 +1,1 @@
-web: gunicorn posturetracker.wsgi
+web: gunicorn application:app
